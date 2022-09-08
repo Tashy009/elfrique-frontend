@@ -141,6 +141,15 @@
                     <span>Dashboard</span>
                 </a></router-link>
             </li>
+            <!-- Hamzat Update -->
+            <li class="nav-item">
+                <router-link to="/organiser/dashboard" class="routers"
+                ><a class="nav-link collapsed">
+                    <img src="@/assets/images/menu-dashboard.png" />
+                    <span>Organiser Dashboard</span>
+                </a></router-link
+                >
+            </li>
             <!--Profile-->
             <!-- <li class="nav-item">
                 <router-link to="/superadmin/profile" class="routers"><a class="nav-link collapsed">

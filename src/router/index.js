@@ -83,8 +83,15 @@ import UpdateAnswer from "../views/dashboard/UpdateAnswer.vue";
 import ViewEnquiries from "../views/dashboard/ViewEnquiries.vue";
 import ViewVendorService from "../views/dashboard/ViewVendorService.vue";
 import EditVendorService from "../views/dashboard/EditVendorService.vue";
+import TravelBooking from "../views/dashboard/TravelBooking.vue";
+import IELTS from "../views/dashboard/IELTS.vue";
+import TourSales from "../views/dashboard/TourSales.vue";
+//catchall 404
+import NotFound from '../views/NotFound.vue'
 /* import DashSearchEvent from "../views/dashboard/SearchEvent.vue"; */
 import DashEventSalesAnalytics from "../views/dashboard/EventSalesAnalytics.vue";
+import VendorSalesAnalytics from "../views/dashboard/VendorSalesAnalytics.vue";
+import HotelBooking from "../views/dashboard/HotelBooking.vue";
 import DashPersonalTicket from "../views/dashboard/PersonalTicket.vue";
 import DashSearchTicket from "../views/dashboard/SearchTicket.vue";
 import DashCreateForm from "../views/dashboard/CreateForm.vue";
@@ -675,6 +682,33 @@ const routes = [
     name: "ViewEnquiries",
     component: ViewEnquiries,
   },
+  {
+    path: "/organiser/vendor-sales-analytics",
+    name: "VendorSalesAnalytics",
+    component: VendorSalesAnalytics,
+  },
+  {
+    path: "/organiser/hotel-booking",
+    name: "HotelBooking",
+    component: HotelBooking,
+  },
+  {
+    path: "/organiser/travel-booking",
+    name: "TravelBooking",
+    component: TravelBooking,
+  },
+  {
+    path: "/organiser/ielts",
+    name: "IELTS",
+    component: IELTS,
+  },
+  {
+    path: "/organiser/tour-sales",
+    name: "TourSales",
+    component: TourSales,
+  },
+   //catchall 404
+   {path: '/:catchAll(.*)', name: 'NotFound', component: NotFound},
   // Latest Hamzat Update on Vendor Side
 
   //seller dashboard

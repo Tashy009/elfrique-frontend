@@ -628,7 +628,7 @@ header .logo img {
   align-items: center;
   font-size: 15px;
   font-weight: 600;
-  color: #000;
+  color: #fff;
   transition: 0.3;
   background: #3B702A;
   padding: 10px 15px;
@@ -641,6 +641,7 @@ header .logo img {
 }
 .sidebar-nav .nav-link img{
   width: 15px;
+  color: #fff;
   margin-right: 10px;
 }
 .sidebar-nav .nav-link.collapsed {
@@ -648,7 +649,7 @@ header .logo img {
   background: #fff;
 }
 .sidebar-nav .nav-link.collapsed i {
-  color: #000000;
+  color: #fff;
 }
 .sidebar-nav .nav-link:hover {
   color: #fff;
@@ -956,6 +957,21 @@ header .logo img {
 }
 .profile .profile-edit img {
   max-width: 120px;
+}
+.profile .input{
+  width: 100%;
+  padding: 10px 0px;
+  border: 1px solid #CED4DA;
+  border-radius: 5px;
+}
+.profile .input:hover{
+  width: 100%;
+  padding: 10px 0px;
+  border: 1px solid #68F874;
+  border-radius: 5px;
+}
+.profile .input:hover ,:focus{
+  outline: #fff !important;
 }
 
 
@@ -2166,4 +2182,14 @@ header .logo img {
   background-color: #26471b !important;
   color: #fff !important;
   padding: 5px 10px 5px 10px;
+}
+.comment span{
+  color: red;
+}
+.created{
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0px 0px 20px 0px;
+  font-weight: 700;
 }

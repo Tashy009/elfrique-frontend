@@ -156,6 +156,15 @@
           </a></router-link
         >
       </li>
+      <!-- Hamzat Update -->
+      <li class="nav-item">
+        <router-link to="/superadmin/dashboard" class="routers"
+          ><a class="nav-link collapsed">
+            <img src="@/assets/images/menu-dashboard.png" />
+            <span>Superadmin Dashboard</span>
+          </a></router-link
+        >
+      </li>
       <!--Voting-->
       <li class="nav-item">
         <a
@@ -521,6 +530,13 @@
               ></router-link
             >
           </li>
+          <li>
+            <router-link to="/organiser/vendor-sales-analytics" class="routers"
+              ><a
+                ><i class="bi bi-circle"></i><span>Sales Analytics</span></a
+              ></router-link
+            >
+          </li>
         </ul>
       </li>
       <!--Travel-->
@@ -539,13 +555,34 @@
           class="nav-content collapse"
           data-bs-parent="#sidebar-nav"
         >
-          <li>
-            <router-link to="#" class="routers"
-              ><a
-                ><i class="bi bi-circle"></i><span>Travel Booking</span></a
-              ></router-link
-            >
-          </li>
+        <li>
+          <router-link to="/organiser/travel-booking" class="routers"
+            ><a
+              ><i class="bi bi-circle"></i><span>Travel Booking</span></a
+            ></router-link
+          >
+        </li>
+        <li>
+          <router-link to="/organiser/hotel-booking" class="routers"
+            ><a
+              ><i class="bi bi-circle"></i><span>Hotel Booking</span></a
+            ></router-link
+          >
+        </li>
+        <li>
+          <router-link to="/organiser/ielts" class="routers"
+            ><a
+              ><i class="bi bi-circle"></i><span>IELTS</span></a
+            ></router-link
+          >
+        </li>
+        <li>
+          <router-link to="/organiser/tour-sales" class="routers"
+            ><a
+              ><i class="bi bi-circle"></i><span>Sales Analytics</span></a
+            ></router-link
+          >
+        </li>
         </ul>
       </li>
       <!--Short URL-->
@@ -612,22 +649,71 @@
 </template>
 <style scoped src="@/assets/css/dashStyle.css"></style>
 <script>
-import ProfileService from "../../service/profile.service";
-import moment from "moment";
-import Notification from "../../service/notitfication-service";
-export default {
-  name: "dashboard",
-  data() {
-    return {
-      notificationCount: 0,
-      notification: "",
-      userId: "",
-    };
-  },
-  created() {
-    ProfileService.getProfile().then(
-      (response) => {
-        this.userId = response.data.profile.adminuser.id;
+  import ProfileService from "../../service/profile.service";
+  import moment from "moment";
+  import Notification from "../../service/notitfication-service";
+  export default {
+    name: "dashboard",
+    data() {
+      return {
+        notificationCount: 0,
+        notification: "",
+        userId: "",
+      };
+    },
+    created() {
+      ProfileService.getProfile().then(
+        (response) => {
+          this.userId = response.data.profile.adminuser.id;
+          Notification.findUserNotification({
+            receiverId: this.userId,
+          }).then((res) => {
+            this.notificationCount = res.data.length;
+            this.notification = res.data;
+          });
+        },
+        (error) => {
+          this.message =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+          this.successful = false;
+        }
+      );
+    },
+    computed: {
+      currentUser() {
+        const user = JSON.parse(localStorage.getItem("user"));
+        console.log(user);
+        if (user) {
+          console.log(user);
+          return user;
+        }
+      },
+    },
+
+    methods: {
+      logOut() {
+        this.$store.dispatch("auth/logout");
+        this.$router.push("/login");
+      },
+      deleteNotice(id) {
+        Notification.deleteNotification(id, { id: "id" }).then((res) => {
+          this.reFetchNotice();
+        });
+      },
+      deleteAllNotice(id) {
+        Notification.deleteAllNotification(id, { id: "id" }).then((res) => {
+          Notification.findUserNotification({
+            receiverId: this.userId,
+          }).then((res) => {
+            this.reFetchNotice();
+          });
+        });
+      },
+      reFetchNotice() {
         Notification.findUserNotification({
           receiverId: this.userId,
         }).then((res) => {
@@ -635,67 +721,18 @@ export default {
           this.notification = res.data;
         });
       },
-      (error) => {
-        this.message =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-        this.successful = false;
+      getHumanDate(date) {
+        return moment(date).fromNow();
+      },
+    },
+
+    mounted() {
+      if (!this.currentUser) {
+        this.$router.push("/login");
       }
-    );
-  },
-  computed: {
-    currentUser() {
-      const user = JSON.parse(localStorage.getItem("user"));
-      console.log(user);
-      if (user) {
-        console.log(user);
-        return user;
-      }
-    },
-  },
+      window.scrollTo(0, 0);
 
-  methods: {
-    logOut() {
-      this.$store.dispatch("auth/logout");
-      this.$router.push("/login");
+      
     },
-    deleteNotice(id) {
-      Notification.deleteNotification(id, { id: "id" }).then((res) => {
-        this.reFetchNotice();
-      });
-    },
-    deleteAllNotice(id) {
-      Notification.deleteAllNotification(id, { id: "id" }).then((res) => {
-        Notification.findUserNotification({
-          receiverId: this.userId,
-        }).then((res) => {
-          this.reFetchNotice();
-        });
-      });
-    },
-    reFetchNotice() {
-      Notification.findUserNotification({
-        receiverId: this.userId,
-      }).then((res) => {
-        this.notificationCount = res.data.length;
-        this.notification = res.data;
-      });
-    },
-    getHumanDate(date) {
-      return moment(date).fromNow();
-    },
-  },
-
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push("/login");
-    }
-    window.scrollTo(0, 0);
-
-    
-  },
-};
+  };
 </script>
