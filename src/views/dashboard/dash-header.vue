@@ -9,7 +9,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-center">
       <a class="logo">
-        <router-link to="/" class="routers">
+        <router-link to="/organiser/dashboard" class="routers">
           <img src="@/assets/images/logo.png" alt="Elfrique Logo" />
         </router-link>
       </a>
@@ -41,11 +41,11 @@
           >
             <li class="dropdown-header">
               You have {{ notificationCount }} new notifications
-              <span
+              <!-- <span
                 class="badge rounded-pill bg-danger p-2 ms-2 text-light"
                 @click="deleteAllNotice(userId)"
                 >Delete All</span
-              >
+              > -->
             </li>
             <li>
               <hr class="dropdown-divider" />
@@ -142,12 +142,6 @@
   <!--------Sidebar--------->
   <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
-      <li class="nav-item sider-switch-link">
-        <a href="/user/dashboard" class="nav-link collapsed">
-          <i class="bi bi-record2-fill"></i>
-          <span>Switch To User Dashboard</span>
-        </a>
-      </li>
       <li class="nav-item">
         <router-link to="/organiser/dashboard" class="routers"
           ><a class="nav-link collapsed">
@@ -734,5 +728,47 @@
 
       
     },
+// <<<<<<< HEAD
   };
+// =======
+//     deleteNotice(id) {
+//       Notification.deleteNotification(id, { id: "id" }).then((res) => {
+//         this.reFetchNotice();
+//       });
+//     },
+//     deleteAllNotice(id) {
+//       Notification.deleteAllNotification(id, { id: "id" }).then((res) => {
+//         Notification.findUserNotification({
+//           receiverId: this.userId,
+//         }).then((res) => {
+//           this.reFetchNotice();
+//         });
+//       });
+//     },
+//     reFetchNotice() {
+//       Notification.findUserNotification({
+//         receiverId: this.userId,
+//       }).then((res) => {
+//         this.notificationCount = res.data.length;
+//         this.notification = res.data;
+//       });
+//     },
+//     getHumanDate(date) {
+//       return moment(date).fromNow();
+//     },
+//   },
+
+//   mounted() {
+//     if (!this.currentUser) {
+//       this.$router.push("/login");
+//     }
+//     window.scrollTo(0, 0);
+//     let externalScript = document.createElement("script");
+//     externalScript.setAttribute(
+//       "src",
+//       "https://cdn.statically.io/gh/NathTimi/scripts/main/main.js"
+//     );
+//     document.head.appendChild(externalScript);    
+//   },
+// };
 </script>

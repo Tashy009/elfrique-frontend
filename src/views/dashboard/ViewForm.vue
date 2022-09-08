@@ -25,20 +25,8 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body card-table">
-              <div class="buttons-table">
-                <!-- <button type="button">Copy</button>
-                    <button type="button">CSV</button>
-                    <button type="button">Excel</button>
-                    <button type="button">PDF</button>
-                    <button type="button">Print</button> -->
-              </div>
-              <!-- <div class="search-table">
-                    <form>
-                        <input type="text" placeholder="Search...">
-                    </form>
-                </div> -->
               <!--Table-->
-              <table class="table datatable card-table-table">
+              <table class="table datatable card-table-table" id="example">
                 <thead>
                   <tr>
                     <th scope="col">Form ID</th>
@@ -126,7 +114,13 @@ export default {
 
     EventService.getForms().then((response) => {
       this.content = response.data.form;
-      console.log(this.content);
+      setTimeout(function () {
+        $("#example").DataTable({
+          dom: "Bfrtip",
+          pageLength: 10,
+          buttons: ["copy", "csv", "excel", "pdf", "print"],
+        });
+      }, 1000);
     });
   },
   methods: {

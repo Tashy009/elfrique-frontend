@@ -40,9 +40,12 @@
           </div>
 
           <div class="contestantPaySection">
-            <h4>Ensure the contestant is who you actually want to vote. There would be no refund or reversal of vote if
-              you choose a wrong contestant.</h4>
-            <hr>
+            <h4>
+              Ensure the contestant is who you actually want to vote. There
+              would be no refund or reversal of vote if you choose a wrong
+              contestant.
+            </h4>
+            <hr />
             <h5>Summary of your order</h5>
             <div>
               <h6>Votes</h6>
@@ -50,7 +53,10 @@
             </div>
             <div>
               <h6>amount</h6>
-              <p>{{ payContent.currency_symbol }} {{ payContent.amount }}</p>
+              <p v-if="payContent.amount != '0.00'">
+                {{ payContent.currency_symbol }} {{ payContent.amount }}
+              </p>
+              <p v-else>Free</p>
             </div>
             <h5>Voter's Details</h5>
             <div>
@@ -67,34 +73,35 @@
             </div>
             <h5>Choose Payment Gateway</h5>
           </div>
-          <div v-if="currency_code != 'NGN'">
-            <div class="col-lg-12 mb-3">
-              <button @click="payWithFlutter">
-                Pay Now – International
-              </button>
+          <div v-if="payContent.amount != '0.00'">
+            <div v-if="currency_code != 'NGN'">
+              <div class="col-lg-12 mb-3">
+                <button @click="payWithFlutter">Pay Now – International</button>
+              </div>
+            </div>
+            <div v-else>
+              <div class="col-lg-12 mb-3" v-if="method == 'paystack'">
+                <button @click="payWithPaystack">Pay Now – Local</button>
+              </div>
+              <div class="col-lg-12 mb-3" v-if="method == 'flutterwave'">
+                <button @click="payWithFlutter">
+                  Pay Now – Local & International
+                </button>
+              </div>
+              <div class="col-lg-12 mb-3" v-if="method == 'interswitch'">
+                <button @click="payWithInterswitch">
+                  Pay Now – Local & International
+                </button>
+              </div>
+              <div class="col-lg-12 mb-3" v-if="method == 'aimstoget'">
+                <button :disabled="loading" @click="callAtgPay">
+                  Pay Now – Airtime – Nigeria Only
+                </button>
+              </div>
             </div>
           </div>
           <div v-else>
-            <div class="col-lg-12 mb-3" v-if="method == 'paystack'">
-              <button @click="payWithPaystack">
-                Pay Now – Local
-              </button>
-            </div>
-            <div class="col-lg-12 mb-3" v-if="method == 'flutterwave'">
-              <button @click="payWithFlutter">
-                Pay Now – Local & International
-              </button>
-            </div>
-            <div class="col-lg-12 mb-3" v-if="method == 'interswitch'">
-              <button @click="payWithInterswitch">
-                Pay Now – Local & International
-              </button>
-            </div>
-            <div class="col-lg-12 mb-3" v-if="method == 'aimstoget'">
-              <button :disabled="loading" @click="callAtgPay">
-                Pay Now – Airtime – Nigeria Only
-              </button>
-            </div>
+            <button @click="continueVote">Proceed Vote</button>
           </div>
         </div>
       </div>
@@ -107,7 +114,11 @@
             Other Contestant(s)
           </h1>
         </div>
-        <div class="col-md-3 py-2" v-for="con in otherContestants" :key="con.id">
+        <div
+          class="col-md-3 py-2"
+          v-for="con in otherContestants"
+          :key="con.id"
+        >
           <div class="card">
             <img :src="con.image" class="card-img-top" />
             <div class="card-body">
@@ -121,8 +132,9 @@
               <p class="card-text card-text-after">
                 <i class="bi bi-activity"></i>: {{ con.voteCount }} (votes)
               </p>
-              <router-link :to="'/contestant-profile/' + con.id" class="routers"><a class="btn-view-contest">View
-                  Profile</a></router-link>
+              <router-link :to="'/contestant-profile/' + con.id" class="routers"
+                ><a class="btn-view-contest">View Profile</a></router-link
+              >
             </div>
           </div>
         </div>
@@ -151,7 +163,7 @@ import Header from "./elfrique-header.vue";
 import Footer from "./elfrique-footer.vue";
 import VoteService from "../service/vote.service";
 import TransactionService from "../service/transaction.service";
-import Notification from '../service/notitfication-service'
+import Notification from "../service/notitfication-service";
 import { throwStatement } from "@babel/types";
 
 export default {
@@ -193,7 +205,7 @@ export default {
     },
 
     method() {
-      return this.payContent.method
+      return this.payContent.method;
     },
 
     amount() {
@@ -210,8 +222,6 @@ export default {
         fullname: this.payContent.firstname + " " + this.payContent.lastname,
       };
     },
-
-
   },
 
   created() {
@@ -222,7 +232,6 @@ export default {
       ).then((response) => {
         this.adminId = response.data.voteContest.adminuserId;
         this.contest = response.data.voteContest;
-
       });
     });
 
@@ -233,7 +242,6 @@ export default {
   },
 
   methods: {
-
     format_date(value) {
       if (value) {
         return moment(String(value)).format("MM/DD/YYYY hh:mm");
@@ -242,7 +250,6 @@ export default {
     getContestant(con) {
       this.$store.dispatch("getContestant", con);
       window.scrollTo(0, 0);
-
     },
 
     nairaToKobo(amount) {
@@ -263,6 +270,30 @@ export default {
       this.phone = "";
     },
 
+    continueVote() {
+      const dataForm = {
+        reference: this.payContent.reference,
+        numberOfVote: this.payContent.numberOfVotes,
+        method: "",
+        type: "free",
+        amount: 0,
+        fullname: this.payContent.firstname + " " + this.payContent.lastname,
+      };
+      Notification.addNotification({
+        receiverId: this.adminId,
+        type: "voting",
+        message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`,
+      });
+      TransactionService.submitVote(this.contestant.id, dataForm).then(
+        (response) => {
+          this.loading = false;
+          this.message = response.data.message;
+          this.resetForm();
+          this.$router.push("/contestant-profile/" + this.contestant.id);
+        }
+      );
+    },
+
     successPaymentPaystack() {
       this.loading = false;
       this.method = "Paystack";
@@ -271,8 +302,8 @@ export default {
       Notification.addNotification({
         receiverId: this.adminId,
         type: "voting",
-        message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
-      })
+        message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`,
+      });
       TransactionService.submitVote(this.contestant.id, this.voteForm).then(
         (response) => {
           this.loading = false;
@@ -337,14 +368,16 @@ export default {
           Notification.addNotification({
             receiverId: this.adminId,
             type: "voting",
-            message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
-          })
-          TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
-            this.loading = false;
-            this.message = response.data.message;
-            this.resetForm();
-            this.$router.push('/contestant-profile/' + this.contestant.id)
-          })
+            message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`,
+          });
+          TransactionService.submitVote(this.contestant.id, this.voteForm).then(
+            (response) => {
+              this.loading = false;
+              this.message = response.data.message;
+              this.resetForm();
+              this.$router.push("/contestant-profile/" + this.contestant.id);
+            }
+          );
         },
         mode: "TEST",
       };
@@ -354,12 +387,12 @@ export default {
     },
 
     payWithFlutter() {
-      if (this.payContent.currency_symbol != 'NGN') {
+      if (this.payContent.currency_symbol != "NGN") {
         let paymentParams = FlutterwaveCheckout({
           public_key: this.flw_public_key,
           tx_ref: this.payContent.reference,
           amount: this.payContent.amount,
-          currency: 'USD',
+          currency: "USD",
           customer: {
             email: this.payContent.email,
             phone_number: this.payContent.phone,
@@ -371,19 +404,20 @@ export default {
             Notification.addNotification({
               receiverId: this.adminId,
               type: "voting",
-              message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
-            })
-            TransactionService.submitVote(this.contestant.id, this.voteForm).then(
-              (response) => {
-                this.loading = false;
-                this.message = response.data.message;
-              }
-            );
-            paymentParams.close()
+              message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`,
+            });
+            TransactionService.submitVote(
+              this.contestant.id,
+              this.voteForm
+            ).then((response) => {
+              this.loading = false;
+              this.message = response.data.message;
+            });
+            paymentParams.close();
             this.$router.push("/contestant-profile/" + this.contestant.id);
-            window.close()
+            window.close();
           },
-          onclose: () => paymentParams.close()
+          onclose: () => paymentParams.close(),
         });
       } else {
         let paymentParams = FlutterwaveCheckout({
@@ -402,31 +436,30 @@ export default {
             Notification.addNotification({
               receiverId: this.adminId,
               type: "voting",
-              message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
-            })
-            TransactionService.submitVote(this.contestant.id, this.voteForm).then(
-              (response) => {
-                this.loading = false;
-                this.message = response.data.message;
-                this.resetForm();
-
-              }
-            );
-            paymentParams.close()
+              message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`,
+            });
+            TransactionService.submitVote(
+              this.contestant.id,
+              this.voteForm
+            ).then((response) => {
+              this.loading = false;
+              this.message = response.data.message;
+              this.resetForm();
+            });
+            paymentParams.close();
             this.$router.push("/contestant-profile/" + this.contestant.id);
-            window.close()
+            window.close();
           },
-          onclose: () => paymentParams.close()
+          onclose: () => paymentParams.close(),
         });
       }
-
 
       //window.FlutterwaveCheckout(paymentParams);
     },
 
     onclose() {
       this.$router.push("/contestant-profile/" + this.contestant.id);
-      console.log('go');
+      console.log("go");
     },
 
     callAtgPay(e) {
@@ -440,7 +473,7 @@ export default {
         //Customer's phone number (Optional)
         phone: this.payContent.phone,
         description: `Vote for ${this.payContent.fullname}`,
-        amount: (this.payContent.amount).toString(),
+        amount: this.payContent.amount.toString(),
         reference: this.payContent.reference,
         logo_url: "https://example.com/logo.png",
         onclose: function () {
@@ -456,18 +489,20 @@ export default {
           let reference = data.reference;
           this.loading = true;
           this.method = "AimToGet";
-          this.amount = data.amount
+          this.amount = data.amount;
           Notification.addNotification({
             receiverId: this.adminId,
             type: "voting",
-            message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
-          })
-          TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
-            this.loading = false;
-            this.message = response.data.message;
-            this.resetForm();
-            this.$router.push('/contestant-profile/' + this.contestant.id)
-          })
+            message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`,
+          });
+          TransactionService.submitVote(this.contestant.id, this.voteForm).then(
+            (response) => {
+              this.loading = false;
+              this.message = response.data.message;
+              this.resetForm();
+              this.$router.push("/contestant-profile/" + this.contestant.id);
+            }
+          );
           //get reference and verify payment before awarding value
         },
       });

@@ -13,11 +13,37 @@ class EventService {
     });
   }
 
+  createRef(dataForm) {
+    return axios.post(API_URL + "userEventReferral", dataForm, {
+      headers: authHeader2(),
+    });
+  }
+
+  patchEventReferral(dataForm) {
+    return axios.patch(API_URL + "userEventReferral", dataForm, {
+      headers: authHeader2(),
+    });
+  }
+
+  deleteEventReferral(id) {
+    return axios.delete(API_URL + "userEventReferral/" + id, {
+      headers: authHeader2(),
+    });
+  }
   /* createAward(awardForm) {
     return axios.post(API_URL + "createAward", awardForm, {
       headers: authHeader(),
     });
   } */
+  getUserEvents() {
+    return axios.get(API_URL + "getAllUserEvents", { headers: authHeader2() });
+  }
+
+  getUserEventReferral() {
+    return axios.get(API_URL + "userEventReferrals", {
+      headers: authHeader2(),
+    });
+  }
 
   getEvents() {
     return axios.get(API_URL + "getAllEvents", { headers: authHeader() });

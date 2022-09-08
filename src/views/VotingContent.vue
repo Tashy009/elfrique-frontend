@@ -39,24 +39,45 @@
             </div>
             <div class="details-social">
               <h5>Share on:</h5>
-              <a href="#" title="Share on facebook"
-                ><img src="@/assets/images/share-facebook.png"
-              /></a>
-              <a href="#" title="Share on whatsapp"
-                ><img src="@/assets/images/share-whatsapp.png"
-              /></a>
-              <a href="#" title="Share on telegram"
-                ><img src="@/assets/images/share-telegram.png"
-              /></a>
-              <a href="#" title="Share on instagram"
-                ><img src="@/assets/images/share-instagram.png"
-              /></a>
-              <a href="#" title="Share on twitter"
-                ><img src="@/assets/images/share-twitter.png"
-              /></a>
-              <a href="#" title="Share through email"
-                ><img src="@/assets/images/share-email.png"
-              /></a>
+              <ShareNetwork
+                network="facebook"
+                :url="currentUrl"
+                :title="contest.title"
+                :quote="contest.title"
+                :hashtags="'Elfrique, Contest, Voting,' + contest.title"
+              >
+                <img src="@/assets/images/share-facebook.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="whatsapp"
+                :url="currentUrl"
+                :title="contest.title"
+              >
+                <img src="@/assets/images/share-whatsapp.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="telegram"
+                :url="currentUrl"
+                :title="contest.title"
+              >
+                <img src="@/assets/images/share-telegram.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="twitter"
+                :url="currentUrl"
+                :title="contest.title"
+                twitter-user="@elfrique"
+                :hashtags="'Elfrique, Contest, Vote,' + contest.title"
+              >
+                <img src="@/assets/images/share-twitter.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="email"
+                :url="currentUrl"
+                :title="contest.title"
+              >
+                <img src="@/assets/images/share-email.png" />
+              </ShareNetwork>
             </div>
           </div>
         </div>
@@ -226,7 +247,10 @@
                 </div>
               </div>
               <div class="container" v-if="ended == true">
-                <h6 style="color:red">oOps! This contest has ended, goto contest page to view another one</h6>
+                <h6 style="color: red">
+                  oOps! This contest has ended, goto contest page to view
+                  another one
+                </h6>
               </div>
             </div>
             <!--Result Graph-->
@@ -239,18 +263,17 @@
               <div class="float-right">
                 <div class="form-group">
                   <label for="chart">Select Graph</label>
-                   <select class="form-control" v-model="chartType">
+                  <select class="form-control" v-model="chartType">
                     <option>Select Chart</option>
                     <option value="polar">Polar Area Chart</option>
                     <option value="bar">Bar Chart</option>
                     <option value="pie">Pie Chart</option>
                   </select>
                 </div>
-               
               </div>
-             <PieChart v-if="chartType == 'pie'" />
-             <BarChart  v-if="chartType == 'bar'" />
-             <PolarChart  v-if="chartType == 'polar'" />
+              <PieChart v-if="chartType == 'pie'" />
+              <BarChart v-if="chartType == 'bar'" />
+              <PolarChart v-if="chartType == 'polar'" />
             </div>
             <!--Organiser-->
             <div
@@ -320,9 +343,9 @@
 <script>
 import Header from "./elfrique-header.vue";
 import Footer from "./elfrique-footer.vue";
-import BarChart from '../Chart/BarChart.vue'
-import PieChart from '../Chart/PieChart.vue'
-import PolarChart from '../Chart/PolarChart.vue'
+import BarChart from "../Chart/BarChart.vue";
+import PieChart from "../Chart/PieChart.vue";
+import PolarChart from "../Chart/PolarChart.vue";
 import moment from "moment";
 import VoteService from "../service/vote.service";
 export default {
@@ -337,7 +360,7 @@ export default {
   data() {
     return {
       contest: "",
-      ended:false,
+      ended: false,
       endDate: "",
       countdown: {
         months: 0,
@@ -346,24 +369,28 @@ export default {
         minutes: 0,
         seconds: 0,
       },
-      chartType: '',
+      chartType: "",
       label: 0,
     };
   },
-
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
+    currentUrl() {
+      return window.location.href;
+    },
+  },
   created() {
     VoteService.getSingleContest(this.$route.params.id).then((response) => {
       this.contest = response.data.voteContest;
       this.endDate = response.data.voteContest.closedate;
-        this.getCountdown();   
+      this.getCountdown();
     });
-
   },
   methods: {
-    getCountdown(){
-        var endCount = moment(this.endDate).format(
-        "YYYY-MM-DDT11:00:00Z"
-      );
+    getCountdown() {
+      var endCount = moment(this.endDate).format("YYYY-MM-DDT11:00:00Z");
 
       // make it a moment object End
       var event = moment(endCount);
@@ -373,13 +400,13 @@ export default {
       /* console.log(current);
       console.log(endCount); */
       if (current >= endCount) {
-        this.ended = true
+        this.ended = true;
         this.countdown.days = 0;
         this.countdown.hours = 0;
         this.countdown.minutes = 0;
         this.countdown.seconds = 0;
-      }else{
-        this.ended = false
+      } else {
+        this.ended = false;
         // get difference between event and current
         var diffTime = event.diff(current);
 
@@ -389,14 +416,13 @@ export default {
         // Interval
         var interval = 1000;
         setInterval(() => {
-            duration = moment.duration(duration - interval, "milliseconds");
-            this.countdown.days = parseInt(duration.asDays());
-            this.countdown.hours = duration.hours();
-            this.countdown.minutes = duration.minutes();
-            this.countdown.seconds = duration.seconds();
+          duration = moment.duration(duration - interval, "milliseconds");
+          this.countdown.days = parseInt(duration.asDays());
+          this.countdown.hours = duration.hours();
+          this.countdown.minutes = duration.minutes();
+          this.countdown.seconds = duration.seconds();
         }, interval);
       }
-      
     },
     format_date(value) {
       if (value) {
@@ -414,14 +440,14 @@ export default {
 </script>
 
 <style>
-  .form-control{
-    height: 50px;
-  }
-  .form-control:focus {
-      color: #212529;
-      background-color: #fff;
-      border-color: #68f874 !important;
-      outline: 0;
-      box-shadow: none !important;
-    }
+.form-control {
+  height: 50px;
+}
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #68f874 !important;
+  outline: 0;
+  box-shadow: none !important;
+}
 </style>
