@@ -5,7 +5,7 @@
     href="@/assets/images/favicon.png"
     type="image/x-icon"
   />
-  <!--------Header--------->
+  <!--------Header------------>
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-center">
       <a class="logo">
@@ -732,7 +732,7 @@
   };
 // =======
 //     deleteNotice(id) {
-  
+
 //       Notification.deleteNotification(id, { id: "id" }).then((res) => {
 //         this.reFetchNotice();
 //       });
