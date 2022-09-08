@@ -732,6 +732,7 @@
   };
 // =======
 //     deleteNotice(id) {
+  
 //       Notification.deleteNotification(id, { id: "id" }).then((res) => {
 //         this.reFetchNotice();
 //       });
