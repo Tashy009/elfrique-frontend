@@ -8,7 +8,7 @@
                         <h3 class="headline font-danger theme_color_6">404</h3>
                     </div>
                     <div class="col-md-8 offset-md-2 text-center">
-                        <p>The page you are attempting to reach is currently not available. This may be because the page does not exist or has been moved.</p>
+                        <p>The page you are attempting to reach is currently not available. This may be because the Page does not exist or has been moved.</p>
                     </div>
                     <div class="error_btn  text-center mt-3">
                         <router-link class="routers" to="/">
