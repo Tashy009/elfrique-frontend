@@ -33,12 +33,49 @@
             </div>
             <div class="details-social">
               <h5>Share on:</h5>
-              <a href="#" title="Share on facebook"><img src="@/assets/images/share-facebook.png" /></a>
-              <a href="#" title="Share on whatsapp"><img src="@/assets/images/share-whatsapp.png" /></a>
-              <a href="#" title="Share on telegram"><img src="@/assets/images/share-telegram.png" /></a>
-              <a href="#" title="Share on instagram"><img src="@/assets/images/share-instagram.png" /></a>
-              <a href="#" title="Share on twitter"><img src="@/assets/images/share-twitter.png" /></a>
-              <a href="#" title="Share through email"><img src="@/assets/images/share-email.png" /></a>
+              <ShareNetwork
+                network="facebook"
+                :url="currentUrl"
+                :title="event.title"
+                :description="event.description"
+                :quote="event.title"
+                :hashtags="'Elfrique, Trivia, Quiz,' + event.title"
+              >
+                <img src="@/assets/images/share-facebook.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="whatsapp"
+                :url="currentUrl"
+                :title="event.title"
+                :description="event.description"
+              >
+                <img src="@/assets/images/share-whatsapp.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="telegram"
+                :url="currentUrl"
+                :title="event.title"
+                :description="event.description"
+              >
+                <img src="@/assets/images/share-telegram.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="twitter"
+                :url="currentUrl"
+                :title="event.title"
+                twitter-user="@elfrique"
+                :hashtags="'Elfrique, Trivia, Quiz,' + event.title"
+              >
+                <img src="@/assets/images/share-twitter.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="email"
+                :url="currentUrl"
+                :title="event.title"
+                :description="event.description"
+              >
+                <img src="@/assets/images/share-email.png" />
+              </ShareNetwork>
             </div>
           </div>
         </div>
@@ -84,11 +121,11 @@
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link tabs-button" id="pills-organ-tab" data-bs-toggle="pill"
+              <!-- <button class="nav-link tabs-button" id="pills-organ-tab" data-bs-toggle="pill"
                 data-bs-target="#pills-organ" type="button" role="tab" aria-controls="pills-organ"
                 aria-selected="false">
                 <i class="fas fa-tv"></i> Organisers
-              </button>
+              </button> -->
             </li>
           </ul>
           <div class="tab-content" id="pills-tabContent">
@@ -551,6 +588,9 @@ export default {
     this.getEvent();
   },
   computed: {
+    currentUrl() {
+      return window.location.href;
+    },
     transactForm() {
       return {
         admin_id: this.admin_id,

@@ -148,7 +148,7 @@
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
+              <!-- <button
                 class="nav-link tabs-button"
                 id="pills-organ-tab"
                 data-bs-toggle="pill"
@@ -159,7 +159,7 @@
                 aria-selected="false"
               >
                 <i class="fas fa-tv"></i> Organisers
-              </button>
+              </button> -->
             </li>
             <li class="nav-item" role="presentation">
               <button
