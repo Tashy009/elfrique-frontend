@@ -284,7 +284,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-2 mx-2">
+                            <div class="col-md-2">
                                 <div class="range-div">
                                     <div class="btn-div">
                                         <img src="@/assets/images/plane.png" draggable="false" alt="logo">
@@ -299,8 +299,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4"></div>
-                            <div class="col-md-1"></div>
-                            <div class="col-md-7 mx-2">
+                            <div class="col-md-8">
                                 <div class="sort">
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
