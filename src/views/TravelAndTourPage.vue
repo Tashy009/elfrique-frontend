@@ -147,10 +147,9 @@
         <section class="filter">
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-lg-1"></div>
                     <div class="col-lg-10">
                         <div class="row">
-                            <div class="col-md-4 mx-2">
+                            <div class="col-md-4">
                                 <div class="clear">
                                     <div class="text">
                                         <p>
@@ -241,421 +240,429 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-2 mx-2">
-                                <div class="range-div">
-                                    <div class="btn-div">
-                                        <img src="@/assets/images/plane.png" draggable="false" alt="logo">
-                                        <p>Flight To China</p>
-                                    </div>
-                                    <div class="line">
-                                        ₦7,864,032
-
-                                    </div>
-                                    <div class="linee">
-                                        ₦8,864,032
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2 mx-2">
-                                <div class="range-div">
-                                    <div class="btn-div">
-                                        <img src="@/assets/images/plane.png" draggable="false" alt="logo">
-                                        <p>Flight To France</p>
-                                    </div>
-                                    <div class="line">
-                                        ₦1,864,032
-                                    </div>
-                                    <div class="linee">
-                                        ₦2,864,032
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2 mx-2">
-                                <div class="range-div">
-                                    <div class="btn-div">
-                                        <img src="@/assets/images/plane.png" draggable="false" alt="logo">
-                                        <p>Flight To London</p>
-                                    </div>
-                                    <div class="line">
-                                        ₦3,864,032
-                                    </div>
-                                    <div class="linee">
-                                        ₦4,864,032
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="range-div">
-                                    <div class="btn-div">
-                                        <img src="@/assets/images/plane.png" draggable="false" alt="logo">
-                                        <p>Flight To Nigeria</p>
-                                    </div>
-                                    <div class="line">
-                                        ₦1,164,032
-                                    </div>
-                                    <div class="linee">
-                                        ₦2,264,032
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4"></div>
+                            
                             <div class="col-md-8">
-                                <div class="sort">
-                                    <nav>
-                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <button class="nav-link close">
-                                                <span>
-                                                    Sort By:
-                                                </span>
-                                            </button>
-                                            <button class="nav-link tabs-button active" id="nav-Cheapest-tab" data-bs-toggle="tab" data-bs-target="#nav-Cheapest" type="button" role="tab" aria-controls="nav-Cheapest" aria-selected="false">
-                                            <i class="fa fa-file-invoice"></i><span>Cheapest</span></button>
-                                            <button class="nav-link tabs-button" id="nav-hotel-tab" data-bs-toggle="tab" data-bs-target="#nav-hotel" type="button" role="tab" aria-controls="nav-hotel" aria-selected="false">
-                                            <i class="fa fa-file-invoice"></i><span>Fastest</span></button>
-                                            <button class="nav-link tabs-button" id="nav-visa-tab" data-bs-toggle="tab" data-bs-target="#nav-visa" type="button" role="tab" aria-controls="nav-visa" aria-selected="false"><i class="fa fa-file-invoice"></i> <span>Recommended</span></button>
-                                        </div>
-                                    </nav>
-                                    <div class="tab-content" id="nav-tabContent">
-                                        <!--Cheapest-->
-                                        <div class="tab-pane tabOne fade show active" id="nav-Cheapest" role="tabpanel" aria-labelledby="nav-Cheapest-tab">
-                                            <div class="learnt">
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div class="pull">
-                                                            <img src="@/assets/images/AF.gif" draggable="false" >
-                                                        </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="range-div">
+                                                    <div class="btn-div">
+                                                        <img src="@/assets/images/plane.png" draggable="false" alt="logo">
+                                                        <p>Flight To China</p>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <div class="pull">
-                                                            <p>
-                                                                KLM Royal Dutch Airlines
-                                                            </p>
-                                                        </div>
+                                                    <div class="line">
+                                                        ₦7,864,032
+                
                                                     </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                22:10 (LOS)
-                                                            </p>
-                                                            <p>
-                                                                Lagos
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                10h 5m
-                                                            </p>
-                                                            <p>
-                                                                1 Stop
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                08:10 (LCY)
-                                                            </p>
-                                                            <p>
-                                                                London
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                ₦1,864,032
-                                                            </p>
-                                                            <button type="button" class="lenn" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                                                View
-                                                            </button>
-                                                        </div>
+                                                    <div class="linee">
+                                                        ₦8,864,032
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="learnt">
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div class="pull">
-                                                            <img src="@/assets/images/paysmallsmall.png" draggable="false" >
-                                                        </div>
+                                            <div class="col-md-3">
+                                                <div class="range-div">
+                                                    <div class="btn-div">
+                                                        <img src="@/assets/images/plane.png" draggable="false" alt="logo">
+                                                        <p>Flight To France</p>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <div class="pull">
-                                                            <p>
-                                                                KLM Royal Dutch Airlines
-                                                            </p>
-                                                        </div>
+                                                    <div class="line">
+                                                        ₦1,864,032
                                                     </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                22:10 (LOS)
-                                                            </p>
-                                                            <p>
-                                                                Lagos
-                                                            </p>
-                                                        </div>
+                                                    <div class="linee">
+                                                        ₦2,864,032
                                                     </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                10h 5m
-                                                            </p>
-                                                            <p>
-                                                                1 Stop
-                                                            </p>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="range-div">
+                                                    <div class="btn-div">
+                                                        <img src="@/assets/images/plane.png" draggable="false" alt="logo">
+                                                        <p>Flight To London</p>
                                                     </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                08:10 (LCY)
-                                                            </p>
-                                                            <p>
-                                                                London
-                                                            </p>
-                                                        </div>
+                                                    <div class="line">
+                                                        ₦3,864,032
                                                     </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                ₦1,864,032
-                                                            </p>
-                                                            <button type="button" class="lenn" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                                                View
-                                                            </button>
-                                                        </div>
+                                                    <div class="linee">
+                                                        ₦4,864,032
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="range-div">
+                                                    <div class="btn-div">
+                                                        <img src="@/assets/images/plane.png" draggable="false" alt="logo">
+                                                        <p>Flight To London</p>
+                                                    </div>
+                                                    <div class="line">
+                                                        ₦3,864,032
+                                                    </div>
+                                                    <div class="linee">
+                                                        ₦4,864,032
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--Fastest-->
-                                        <div class="tab-pane tabOne fade" id="nav-hotel" role="tabpanel" aria-labelledby="nav-hotel-tab">
-                                            <div class="learnt">
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div class="pull">
-                                                            <img src="@/assets/images/AF.gif" draggable="false" >
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="sort">
+                                            <nav>
+                                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                    <button class="nav-link close">
+                                                        <span>
+                                                            Sort By:
+                                                        </span>
+                                                    </button>
+                                                    <button class="nav-link tabs-button active" id="nav-Cheapest-tab" data-bs-toggle="tab" data-bs-target="#nav-Cheapest" type="button" role="tab" aria-controls="nav-Cheapest" aria-selected="false">
+                                                    <i class="fa fa-file-invoice"></i><span>Cheapest</span></button>
+                                                    <button class="nav-link tabs-button" id="nav-hotel-tab" data-bs-toggle="tab" data-bs-target="#nav-hotel" type="button" role="tab" aria-controls="nav-hotel" aria-selected="false">
+                                                    <i class="fa fa-file-invoice"></i><span>Fastest</span></button>
+                                                    <button class="nav-link tabs-button" id="nav-visa-tab" data-bs-toggle="tab" data-bs-target="#nav-visa" type="button" role="tab" aria-controls="nav-visa" aria-selected="false"><i class="fa fa-file-invoice"></i> <span>Recommended</span></button>
+                                                </div>
+                                            </nav>
+                                            <div class="tab-content" id="nav-tabContent">
+                                                <!--Cheapest-->
+                                                <div class="tab-pane tabOne fade show active" id="nav-Cheapest" role="tabpanel" aria-labelledby="nav-Cheapest-tab">
+                                                    <div class="learnt">
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                <div class="pull">
+                                                                    <img src="@/assets/images/AF.gif" draggable="false" >
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        KLM Royal Dutch Airlines
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        22:10 (LOS)
+                                                                    </p>
+                                                                    <p>
+                                                                        Lagos
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        10h 5m
+                                                                    </p>
+                                                                    <p>
+                                                                        1 Stop
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        08:10 (LCY)
+                                                                    </p>
+                                                                    <p>
+                                                                        London
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        ₦1,864,032
+                                                                    </p>
+                                                                    <button type="button" class="lenn" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                                                        View
+                                                                    </button>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <div class="pull">
-                                                            <p>
-                                                                KLM Royal Dutch Airlines
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                22:10 (LOS)
-                                                            </p>
-                                                            <p>
-                                                                Abuja
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                11h 5m
-                                                            </p>
-                                                            <p>
-                                                                1 Stop
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                09:10 (LCY)
-                                                            </p>
-                                                            <p>
-                                                                Chana
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                ₦2,864,032
-                                                            </p>
-                                                            <button type="button" class="lenn" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                                                View
-                                                            </button>
+                                                    <div class="learnt">
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                <div class="pull">
+                                                                    <img src="@/assets/images/paysmallsmall.png" draggable="false" >
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        KLM Royal Dutch Airlines
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        22:10 (LOS)
+                                                                    </p>
+                                                                    <p>
+                                                                        Lagos
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        10h 5m
+                                                                    </p>
+                                                                    <p>
+                                                                        1 Stop
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        08:10 (LCY)
+                                                                    </p>
+                                                                    <p>
+                                                                        London
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        ₦1,864,032
+                                                                    </p>
+                                                                    <button type="button" class="lenn" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                                                        View
+                                                                    </button>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="learnt">
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div class="pull">
-                                                            <img src="@/assets/images/paysmallsmall.png" draggable="false" >
+                                                <!--Fastest-->
+                                                <div class="tab-pane tabOne fade" id="nav-hotel" role="tabpanel" aria-labelledby="nav-hotel-tab">
+                                                    <div class="learnt">
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                <div class="pull">
+                                                                    <img src="@/assets/images/AF.gif" draggable="false" >
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        KLM Royal Dutch Airlines
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        22:10 (LOS)
+                                                                    </p>
+                                                                    <p>
+                                                                        Abuja
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        11h 5m
+                                                                    </p>
+                                                                    <p>
+                                                                        1 Stop
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        09:10 (LCY)
+                                                                    </p>
+                                                                    <p>
+                                                                        Chana
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        ₦2,864,032
+                                                                    </p>
+                                                                    <button type="button" class="lenn" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                                                        View
+                                                                    </button>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <div class="pull">
-                                                            <p>
-                                                                KLM Royal Dutch Airlines
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                22:10 (LOS)
-                                                            </p>
-                                                            <p>
-                                                                Lagos
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                10h 5m
-                                                            </p>
-                                                            <p>
-                                                                1 Stop
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                08:10 (LCY)
-                                                            </p>
-                                                            <p>
-                                                                London
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                ₦1,864,032
-                                                            </p>
-                                                            <button type="button" class="lenn" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                                                View
-                                                            </button>
+                                                    <div class="learnt">
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                <div class="pull">
+                                                                    <img src="@/assets/images/paysmallsmall.png" draggable="false" >
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        KLM Royal Dutch Airlines
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        22:10 (LOS)
+                                                                    </p>
+                                                                    <p>
+                                                                        Lagos
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        10h 5m
+                                                                    </p>
+                                                                    <p>
+                                                                        1 Stop
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        08:10 (LCY)
+                                                                    </p>
+                                                                    <p>
+                                                                        London
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        ₦1,864,032
+                                                                    </p>
+                                                                    <button type="button" class="lenn" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                                                        View
+                                                                    </button>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <!--e-Reconded-->
-                                        <div class="tab-pane fade" id="nav-visa" role="tabpanel" aria-labelledby="nav-visa-tab">
-                                            <div class="learnt">
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div class="pull">
-                                                            <img src="@/assets/images/AF.gif" draggable="false" >
+                                                <!--e-Reconded-->
+                                                <div class="tab-pane fade" id="nav-visa" role="tabpanel" aria-labelledby="nav-visa-tab">
+                                                    <div class="learnt">
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                <div class="pull">
+                                                                    <img src="@/assets/images/AF.gif" draggable="false" >
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        KLM Royal Dutch Airlines
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        22:10 (LOS)
+                                                                    </p>
+                                                                    <p>
+                                                                        Kaduna
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        11h 5m
+                                                                    </p>
+                                                                    <p>
+                                                                        1 Stop
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        08:10 (LCY)
+                                                                    </p>
+                                                                    <p>
+                                                                        France
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        ₦1,864,032
+                                                                    </p>
+                                                                    <button style=" background-color:#305d21 ;border:none;  padding: 5px 20px 5px 20px; border-radius: 8px; margin-top:10px; color: #fff; font-size: 14px;" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                                                        View
+                                                                    </button>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <div class="pull">
-                                                            <p>
-                                                                KLM Royal Dutch Airlines
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                22:10 (LOS)
-                                                            </p>
-                                                            <p>
-                                                                Kaduna
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                11h 5m
-                                                            </p>
-                                                            <p>
-                                                                1 Stop
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                08:10 (LCY)
-                                                            </p>
-                                                            <p>
-                                                                France
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                ₦1,864,032
-                                                            </p>
-                                                            <button style=" background-color:#305d21 ;border:none;  padding: 5px 20px 5px 20px; border-radius: 8px; margin-top:10px; color: #fff; font-size: 14px;" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                                                View
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="learnt">
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div class="pull">
-                                                            <img src="@/assets/images/paysmallsmall.png" draggable="false" >
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div class="pull">
-                                                            <p>
-                                                                KLM Royal Dutch Airlines
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                22:10 (LOS)
-                                                            </p>
-                                                            <p>
-                                                                Lagos
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                10h 5m
-                                                            </p>
-                                                            <p>
-                                                                1 Stop
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                08:10 (LCY)
-                                                            </p>
-                                                            <p>
-                                                                London
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="pull">
-                                                            <p>
-                                                                ₦1,864,032
-                                                            </p>
-                                                            <button style=" background-color:#305d21 ;border:none;  padding: 5px 20px 5px 20px; border-radius: 8px; margin-top:10px; color: #fff; font-size: 14px;" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                                                View
-                                                            </button>
+                                                    <div class="learnt">
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                <div class="pull">
+                                                                    <img src="@/assets/images/paysmallsmall.png" draggable="false" >
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        KLM Royal Dutch Airlines
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        22:10 (LOS)
+                                                                    </p>
+                                                                    <p>
+                                                                        Lagos
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        10h 5m
+                                                                    </p>
+                                                                    <p>
+                                                                        1 Stop
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        08:10 (LCY)
+                                                                    </p>
+                                                                    <p>
+                                                                        London
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="pull">
+                                                                    <p>
+                                                                        ₦1,864,032
+                                                                    </p>
+                                                                    <button style=" background-color:#305d21 ;border:none;  padding: 5px 20px 5px 20px; border-radius: 8px; margin-top:10px; color: #fff; font-size: 14px;" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                                                        View
+                                                                    </button>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -666,7 +673,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-1"></div>
                 </div>
             </div>
         </section>

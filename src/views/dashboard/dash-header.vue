@@ -534,7 +534,7 @@
         </ul>
       </li>
       <!--Travel-->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a
           class="nav-link collapsed"
           data-bs-target="#travel-nav"
@@ -578,7 +578,7 @@
           >
         </li>
         </ul>
-      </li>
+      </li> -->
       <!--Short URL-->
       <li class="nav-item">
         <a
