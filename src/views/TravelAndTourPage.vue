@@ -242,7 +242,7 @@
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <div class="range-div">
+                                <div class="range-div mx-2">
                                     <div class="btn-div">
                                         <img src="@/assets/images/plane.png" draggable="false" alt="logo">
                                         <p>Flight To China</p>
