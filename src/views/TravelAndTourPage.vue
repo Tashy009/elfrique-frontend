@@ -775,7 +775,6 @@
     <elfrique-footer/>
 </template>
 <style scoped src="@/assets/css/travelandtour.css"></style>
-<style scoped src="@/assets/css/dashStyle.css"></style>
 <script>
     import Header from './elfrique-header.vue'
     import Newsletter from './elfrique-newsletter.vue'
