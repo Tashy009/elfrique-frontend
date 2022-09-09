@@ -30,24 +30,49 @@
             </div>
             <div class="details-social">
               <h5>Share on:</h5>
-              <a href="#" title="Share on facebook"
-                ><img src="@/assets/images/share-facebook.png"
-              /></a>
-              <a href="#" title="Share on whatsapp"
-                ><img src="@/assets/images/share-whatsapp.png"
-              /></a>
-              <a href="#" title="Share on telegram"
-                ><img src="@/assets/images/share-telegram.png"
-              /></a>
-              <a href="#" title="Share on instagram"
-                ><img src="@/assets/images/share-instagram.png"
-              /></a>
-              <a href="#" title="Share on twitter"
-                ><img src="@/assets/images/share-twitter.png"
-              /></a>
-              <a href="#" title="Share through email"
-                ><img src="@/assets/images/share-email.png"
-              /></a>
+              <ShareNetwork
+                network="facebook"
+                :url="currentUrl"
+                :title="trivia.title"
+                :description="trivia.details"
+                :quote="trivia.title"
+                :hashtags="'Elfrique, Trivia, Quiz,' + trivia.title"
+              >
+                <img src="@/assets/images/share-facebook.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="whatsapp"
+                :url="currentUrl"
+                :title="trivia.title"
+                :description="trivia.details"
+              >
+                <img src="@/assets/images/share-whatsapp.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="telegram"
+                :url="currentUrl"
+                :title="trivia.title"
+                :description="trivia.details"
+              >
+                <img src="@/assets/images/share-telegram.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="twitter"
+                :url="currentUrl"
+                :title="trivia.title"
+                twitter-user="@elfrique"
+                :hashtags="'Elfrique, Trivia, Quiz,' + trivia.title"
+              >
+                <img src="@/assets/images/share-twitter.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="email"
+                :url="currentUrl"
+                :title="trivia.title"
+                :description="trivia.details"
+              >
+                <img src="@/assets/images/share-email.png" />
+              </ShareNetwork>
             </div>
           </div>
         </div>
@@ -101,8 +126,11 @@ export default {
     player() {
       return this.$store.state.vote.player;
     },
+    currentUrl() {
+      return window.location.href;
+    },
   },
-
+  
   created() {
     TriviaService.getSingleTrivia(this.$route.params.id)
       .then((response) => {

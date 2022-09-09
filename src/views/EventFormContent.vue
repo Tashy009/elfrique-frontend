@@ -38,50 +38,77 @@
             </div>
             <div class="details-social">
               <h5>Share on:</h5>
-              <a href="#" title="Share on facebook"
-                ><img src="@/assets/images/share-facebook.png"
-              /></a>
-              <a href="#" title="Share on whatsapp"
-                ><img src="@/assets/images/share-whatsapp.png"
-              /></a>
-              <a href="#" title="Share on telegram"
-                ><img src="@/assets/images/share-telegram.png"
-              /></a>
-              <a href="#" title="Share on instagram"
-                ><img src="@/assets/images/share-instagram.png"
-              /></a>
-              <a href="#" title="Share on twitter"
-                ><img src="@/assets/images/share-twitter.png"
-              /></a>
-              <a href="#" title="Share through email"
-                ><img src="@/assets/images/share-email.png"
-              /></a>
+              <ShareNetwork
+                network="facebook"
+                :url="currentUrl"
+                :title="eventContent.title"
+                :description="eventContent.description"
+                :quote="eventContent.title"
+                :hashtags="'Elfrique, Event, Job,' + eventContent.title"
+              >
+                <img src="@/assets/images/share-facebook.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="whatsapp"
+                :url="currentUrl"
+                :title="eventContent.title"
+                :description="eventContent.description"
+              >
+                <img src="@/assets/images/share-whatsapp.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="telegram"
+                :url="currentUrl"
+                :title="eventContent.title"
+                :description="eventContent.description"
+              >
+                <img src="@/assets/images/share-telegram.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="twitter"
+                :url="currentUrl"
+                :title="eventContent.title"
+                twitter-user="@elfrique"
+                :hashtags="'Elfrique, Event, Form,' + eventContent.title"
+              >
+                <img src="@/assets/images/share-twitter.png" />
+              </ShareNetwork>
+              <ShareNetwork
+                network="email"
+                :url="currentUrl"
+                :title="eventContent.title"
+                :description="eventContent.description"
+              >
+                <img src="@/assets/images/share-email.png" />
+              </ShareNetwork>
             </div>
           </div>
         </div>
         <div class="col-md-2 justify-content-center text-center">
           <div class="counter-div">
-              <div class="icon">
-                  <i class="bi bi-alarm-fill"></i>
-              </div>
-              <div class="boxes days">
-                  <span class="title">Days</span> <br>
-                  <span>{{countdown.days}}</span>
-              </div>
-              <div class="boxes hours">
-                  <span class="title">Hours</span> <br>
-                  <span>{{countdown.hours}}</span>
-              </div>
-              <div class="boxes minutes">
-                  <span class="title">Min</span> <br>
-                  <span>{{countdown.minutes}}</span>
-              </div>
-              <div class="boxes seconds">
-                  <span class="title">Sec</span> <br>
-                  <span>{{countdown.seconds}}</span>
-              </div>
-              <div class="clear"></div>
-              <p v-if="ended == false" class="timeUpText" style="color: red">Time is up</p>
+            <div class="icon">
+              <i class="bi bi-alarm-fill"></i>
+            </div>
+            <div class="boxes days">
+              <span class="title">Days</span> <br />
+              <span>{{ countdown.days }}</span>
+            </div>
+            <div class="boxes hours">
+              <span class="title">Hours</span> <br />
+              <span>{{ countdown.hours }}</span>
+            </div>
+            <div class="boxes minutes">
+              <span class="title">Min</span> <br />
+              <span>{{ countdown.minutes }}</span>
+            </div>
+            <div class="boxes seconds">
+              <span class="title">Sec</span> <br />
+              <span>{{ countdown.seconds }}</span>
+            </div>
+            <div class="clear"></div>
+            <p v-if="ended == false" class="timeUpText" style="color: red">
+              Time is up
+            </p>
           </div>
         </div>
       </div>
@@ -105,7 +132,7 @@
                 <i class="bi bi-people-fill"></i> Forms
               </button>
             </li>
-            <li class="nav-item" role="presentation">
+            <!-- <li class="nav-item" role="presentation">
               <button
                 class="nav-link tabs-button"
                 id="pills-organ-tab"
@@ -118,7 +145,7 @@
               >
                 <i class="fas fa-tv"></i> Organisers
               </button>
-            </li>
+            </li> -->
             <li class="nav-item" role="presentation">
               <button
                 class="nav-link tabs-button"
@@ -147,30 +174,55 @@
                   <div class="col-lg-12" v-if="ended == true">
                     <form>
                       <div class="row">
-                          <div class="col-lg-12">
-                              <h1 style="margin-top: -60px;">Register</h1>
-                              <p class="amount" style="text-transform: capitalize;"><i class="bi bi-credit-card-fill"></i> : {{eventContent.type}}</p>
-                              <h6>Enter the following details to continue</h6>
-                          </div>
-                          <div class="col-lg-6 mb-3">
-                              <label>First name</label>
-                              <input v-model="firstname" class="input" type="text" placeholder="Enter first name">
-                          </div>
-                          <div class="col-lg-6 mb-3">
-                              <label>Last name</label>
-                              <input v-model="lastname" class="input" type="text" placeholder="Enter last name">
-                          </div>
-                          <div class="col-lg-12 mb-3">
-                              <label>Email address</label>
-                              <input v-model="email" class="input" type="email" placeholder="Enter email address">
-                          </div>
-                          <div class="col-lg-12 text-center">
-                              <button v-if="eventContent.type == 'paid'"  @click="proceedPay()">Proceed</button>
-                              <!--Note This proceed button will direct them to EventFormPay.vue page for the summary-->
-                              <button v-else @click="continueForm(eventContent.id)">Proceed</button>
-                          </div>
+                        <div class="col-lg-12">
+                          <h1 style="margin-top: -60px">Register</h1>
+                          <p class="amount" style="text-transform: capitalize">
+                            <i class="bi bi-credit-card-fill"></i> :
+                            {{ eventContent.type }}
+                          </p>
+                          <h6>Enter the following details to continue</h6>
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                          <label>First name</label>
+                          <input
+                            v-model="firstname"
+                            class="input"
+                            type="text"
+                            placeholder="Enter first name"
+                          />
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                          <label>Last name</label>
+                          <input
+                            v-model="lastname"
+                            class="input"
+                            type="text"
+                            placeholder="Enter last name"
+                          />
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                          <label>Email address</label>
+                          <input
+                            v-model="email"
+                            class="input"
+                            type="email"
+                            placeholder="Enter email address"
+                          />
+                        </div>
+                        <div class="col-lg-12 text-center">
+                          <button
+                            v-if="eventContent.type == 'paid'"
+                            @click="proceedPay()"
+                          >
+                            Proceed
+                          </button>
+                          <!--Note This proceed button will direct them to EventFormPay.vue page for the summary-->
+                          <button v-else @click="continueForm(eventContent.id)">
+                            Proceed
+                          </button>
+                        </div>
                       </div>
-                  </form>
+                    </form>
 
                     <!-- <button
                       @click="showModal"
@@ -190,7 +242,9 @@
                     </button> -->
                   </div>
                   <div class="col-lg-12" v-else>
-                    <h6 style="color:red">Event has expired, goto event form to apply another one</h6>
+                    <h6 style="color: red">
+                      Event has expired, goto event form to apply another one
+                    </h6>
                   </div>
                 </div>
               </div>
@@ -326,7 +380,7 @@
               <div class="container organiser-area">
                 <div class="row justify-content-center px-2">
                   <div class="col-lg-12">
-                    <h1 style="margin-top: -30px;">Oragniser Details</h1>
+                    <h1 style="margin-top: -30px">Oragniser Details</h1>
                     <h4>Name</h4>
                     <p>
                       {{ eventContent.adminuser.profile.firstname }}
@@ -352,7 +406,7 @@
               <div class="container organiser-area">
                 <div class="row justify-content-center px-2">
                   <div class="col-lg-12">
-                    <h1 style="margin-top: -30px;">Event Details</h1>
+                    <h1 style="margin-top: -30px">Event Details</h1>
                     <h6
                       style="
                         max-width: 524px;
@@ -414,19 +468,22 @@ export default {
       reference: this.genRef(),
       publicKey: "pk_test_be803d46f5a6348c3643967d0e6b7b2303d42b4f",
       flw_public_key: "FLWPUBK_TEST-0f353662b04aee976128e62946a59682-X",
-      endDate: '',
+      endDate: "",
       countdown: {
         months: 0,
         days: 0,
         hours: 0,
         minutes: 0,
         seconds: 0,
-      }
+      },
     };
   },
   computed: {
     formId() {
       return this.$route.params.id;
+    },
+    currentUrl() {
+      return window.location.href;
     },
     inPutFilled() {
       if (this.email != "" && this.firstname != "" && this.lastname != "") {
@@ -481,10 +538,8 @@ export default {
           });
       });
     },
-    getCountdown(){
-      var endCount = moment(this.endDate).format(
-        "YYYY-MM-DDT11:00:00Z"
-      );
+    getCountdown() {
+      var endCount = moment(this.endDate).format("YYYY-MM-DDT11:00:00Z");
 
       // make it a moment object End
       var event = moment(endCount);
@@ -493,14 +548,14 @@ export default {
       var current = moment().format();
       /* console.log(current);
       console.log(endCount); */
-       if (current >= endCount) {
-        this.ended = false
+      if (current >= endCount) {
+        this.ended = false;
         this.countdown.days = 0;
         this.countdown.hours = 0;
         this.countdown.minutes = 0;
         this.countdown.seconds = 0;
-      }else{
-        this.ended = true
+      } else {
+        this.ended = true;
         // get difference between event and current
         var diffTime = event.diff(current);
 
@@ -510,11 +565,11 @@ export default {
         // Interval
         var interval = 1000;
         setInterval(() => {
-            duration = moment.duration(duration - interval, "milliseconds");
-            this.countdown.days = parseInt(duration.asDays());
-            this.countdown.hours = duration.hours();
-            this.countdown.minutes = duration.minutes();
-            this.countdown.seconds = duration.seconds();
+          duration = moment.duration(duration - interval, "milliseconds");
+          this.countdown.days = parseInt(duration.asDays());
+          this.countdown.hours = duration.hours();
+          this.countdown.minutes = duration.minutes();
+          this.countdown.seconds = duration.seconds();
         }, interval);
       }
     },
@@ -523,26 +578,30 @@ export default {
         return moment(String(value)).format("MM/DD/YYYY hh:mm");
       }
     },
-    continueForm(id){
+    continueForm(id) {
       let data = {
-        "name": this.firstname + " " + this.lastname,
-        "email": this.email
-      }
+        name: this.firstname + " " + this.lastname,
+        email: this.email,
+      };
       Notification.addNotification({
         receiverId: this.admin_id,
         type: "Event Form",
         message: `Someone just Successfully Applied for Event Form`,
       });
       this.$router.push("/fill-form/" + id, {
-        params: {data: {data}}
+        params: { data: { data } },
       });
     },
-    proceedPay(){
-      this.$router.push({name: "EvtForEventFormPay", params: {
-        data: JSON.stringify(this.transactForm),
-         description: this.description}})
+    proceedPay() {
+      this.$router.push({
+        name: "EvtForEventFormPay",
+        params: {
+          data: JSON.stringify(this.transactForm),
+          description: this.description,
+        },
+      });
     },
-    showModal(){
+    showModal() {
       this.modal = new Modal(this.$refs.exampleModal);
       this.modal.show();
     },
